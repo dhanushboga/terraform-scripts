@@ -3,7 +3,6 @@ resource "aws_instance" "linux" {
     instance_type = "t2.micro"
     key_name = "Linux-key"
     
-
 tags = {
     Name = "Linux"
 } 
