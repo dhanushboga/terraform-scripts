@@ -30,7 +30,7 @@ resource "aws_instance" "terraform" {
 
 
 tags = {
-  Name = "Terraform"
+  ame = "Terraform"
 }
   
 }
