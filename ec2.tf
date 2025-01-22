@@ -19,7 +19,7 @@ resource "aws_security_group" "allow-sshh" {
   }
 
 tags = {
-  name = "Allow-sshh"
+  Name = "Allow-sshh"
 }
 }
 
@@ -30,7 +30,7 @@ resource "aws_instance" "terraform" {
 
 
 tags = {
-  ame = "Terraform"
+  Name = "Terraform"
 }
   
 }
