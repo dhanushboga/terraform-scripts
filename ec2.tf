@@ -3,10 +3,8 @@ resource "aws_instance" "ec2" {
     vpc_security_group_ids = [aws_security_group.allow-sshh.id]
     instance_type = "t3.micro"
 
-
-
     tags = {
-        name = "MY EC2 INSTANCE"
+        Name = "MY EC2 INSTANCE"
         purpose = "this is for practice"
     }
 }
