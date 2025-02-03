@@ -1,6 +1,20 @@
+resource "aws_instance" "ec2" {
+    ami = ""
+    vpc_security_group_ids = [aws_security_group.allow-sshh.id]
+    instance_type = "t3.micro"
+
+
+
+    tags = {
+        name = "MY EC2 INSTANCE"
+        purpose = "this is for practice"
+    }
+}
+
+
 resource "aws_security_group" "allow-sshh" {
   name = "allow-sshh"
-  description = "allowing the ssh protocol"
+  description = "this is the security group for ssh"
 
   egress {
     from_port        = 0
@@ -18,20 +32,9 @@ resource "aws_security_group" "allow-sshh" {
     ipv6_cidr_blocks = ["::/0"]
   }
 
-tags = {
-  Name = "Allow-sshh"
-}
-}
-
-resource "aws_instance" "terraform" {
-    ami = "ami-09c813fb71547fc4f"
-    instance_type = "t3.micro"
-    vpc_security_group_ids = [aws_security_group.allow-sshh.id]
-
-
-tags = {
-  Name = "Terraform"
-}
+  tags = {
+    name = "allow-sshh"
+    description = "test description"
+  }
   
 }
-
