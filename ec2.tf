@@ -1,17 +1,17 @@
 resource "aws_instance" "ec2" {
-    ami = "ami-09c813fb71547fc4f"
-    vpc_security_group_ids = [aws_security_group.allow-sshh.id]
-    instance_type = "t3.micro"
+  ami                    = "ami-09c813fb71547fc4f"
+  vpc_security_group_ids = [aws_security_group.allow-sshh.id]
+  instance_type          = "t3.micro"
 
-    tags = {
-        Name = "MY EC2 INSTANCE"
-        purpose = "this is for practice"
-    }
+  tags = {
+    Name    = "MY EC2 INSTANCE"
+    purpose = "this is for practice"
+  }
 }
 
 
 resource "aws_security_group" "allow-sshh" {
-  name = "allow-sshh"
+  name        = "allow-sshh"
   description = "this is the security group for ssh"
 
   egress {
@@ -31,8 +31,8 @@ resource "aws_security_group" "allow-sshh" {
   }
 
   tags = {
-    name = "allow-sshh"
+    name        = "allow-sshh"
     description = "test description"
   }
-  
+
 }
