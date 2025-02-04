@@ -5,7 +5,7 @@ variable "ami_id" {
 
 variable "aws_ins_type" {
     type = string
-  default = "t3.micro"
+    default = "t3.micro"
 }
 
 
@@ -47,7 +47,15 @@ variable "tag_name_ec2" {
     default = {
         Name = "MY EC2 INSTANCE"
         purpose = "this is for practice"
+        Project = "expense"
+        component = "backend"
+        Environment = "expense-backend-dev"
     }
   
 }
 
+#command Line
+#terraform.tfvars
+#environment variables
+#default variables
+#prompt
