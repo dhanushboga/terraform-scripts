@@ -1,5 +1,6 @@
 resource "aws_instance" "ec2-expense" {
-  count = 3 #it will create three instances
+  count = length(var.instances) #it will create three instances
+  #count = 3
   ami                    = "ami-09c813fb71547fc4f"
   vpc_security_group_ids = [aws_security_group.allow-sshh.id]
   instance_type          = "t3.micro"
