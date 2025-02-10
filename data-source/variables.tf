@@ -1,6 +1,3 @@
-variable "aws_instance_type" {
-  default = "t3.micro"
-}
 
 variable "tags_name" {
   default = {

@@ -1,7 +1,7 @@
 resource "aws_instance" "ec2" {
   ami                    = data.aws_ami.my_ami_id.id
-  vpc_security_group_ids = [aws_security_group.allow-sshh.id]
-  instance_type          = var.aws_instance_type
+  vpc_security_group_ids = local.vpc_security_group_ids
+  instance_type          = local.instance_type
   tags = var.tags_name
 }
 
