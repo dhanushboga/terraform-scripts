@@ -1,6 +1,6 @@
 resource "aws_instance" "ec2" {
   ami                    = local.ami_id
-  vpc_security_group_ids = [aws_security_group.allow-sshh.id]
+  vpc_security_group_ids = local.vpc_security_group_ids
   instance_type          = local.instance_type
 
   tags = {
@@ -11,8 +11,8 @@ resource "aws_instance" "ec2" {
 
 
 resource "aws_security_group" "allow-sshh" {
-  name        = "allow-sshh"
-  description = "this is the security group for ssh"
+  name        = local.name
+  description = local.description_name
 
   egress {
     from_port        = 0
