@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "82s-chenchu-state"
-    key    = "ec2-info" #unique keys within the bucket and same key cannot be use
+    key    = "ec2/ec2-info" #unique keys within the bucket and same key cannot be use
     region = "us-east-1"
     dynamodb_table = "82s-chenchu"
   }
