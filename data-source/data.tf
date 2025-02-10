@@ -18,15 +18,14 @@ data "aws_ami" "my_ami_id" {
   }
 }
 
-data "aws_vpc" "default" {
-    default = true
-  
+data "aws_vpc" "aws_vpc_id" {
+  default = true
 }
 
-output "ami_info" {
-    value = data.aws_ami.my_ami_id.id
+output "aws_ami_info" {
+  value = data.aws_ami.my_ami_id.id
 }
 
-output "vpc_info" {
-    value = data.aws_vpc.default.id
+output "aws_vpc_info" {
+  value = data.aws_vpc.aws_vpc_id.id
 }

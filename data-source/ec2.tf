@@ -1,17 +1,13 @@
 resource "aws_instance" "ec2" {
   ami                    = data.aws_ami.my_ami_id.id
   vpc_security_group_ids = [aws_security_group.allow-sshh.id]
-  instance_type          = "t3.micro"
-
-  tags = {
-    Name    = "MY EC2 INSTANCE"
-    purpose = "this is for practice"
-  }
+  instance_type          = var.aws_instance_type
+  tags = var.tags_name
 }
 
 
 resource "aws_security_group" "allow-sshh" {
-  name        = "allow-sshh"
+  name        = var.sg_name
   description = "this is the security group for ssh"
 
   egress {
@@ -23,16 +19,12 @@ resource "aws_security_group" "allow-sshh" {
   }
 
   ingress {
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    from_port        = var.sg_from_port
+    to_port          = var.sg_to_port
+    protocol         = var.sg_protocol
+    cidr_blocks      = var.sg_cidr_block
+    ipv6_cidr_blocks = var.sg_ipv6
   }
-
-  tags = {
-    name        = "allow-sshh"
-    description = "test description"
-  }
+  tags = var.sg_tags_name
 
 }
