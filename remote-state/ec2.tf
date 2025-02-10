@@ -1,17 +1,17 @@
 resource "aws_instance" "ec2" {
-  ami                    = "ami-09c813fb71547fc4f"
-  vpc_security_group_ids = [aws_security_group.allow-sshh.id]
-  instance_type          = "t3.micro"
+  ami                    = local.ami
+  vpc_security_group_ids = local.vpc_security_group_ids
+  instance_type          = local.instance_type
 
   tags = {
-    Name    = "MY EC2 INSTANCE"
+    Name    = local.Name
     purpose = "this is for practice"
   }
 }
 
 
 resource "aws_security_group" "allow-sshh" {
-  name        = "allow-sshh"
+  name        = local.name
   description = "this is the security group for ssh"
 
   egress {
