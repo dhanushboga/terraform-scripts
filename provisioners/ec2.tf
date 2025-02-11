@@ -7,17 +7,16 @@ resource "aws_instance" "ec2" {
     Name    = "MY EC2 INSTANCE"
     purpose = "this is for practice"
   }
-
-  provisioner "local-exec"{
-  command = "echo ${self.private_ip} > inventory"
+provisioner "local-exec" {
+  command = "echo ${self.private_ip} > private_inventory"
 }
 
 connection {
-  type = "ssh"
-  user = "ec2-user"
-  password = "DevOps321"
-  host = self.public_ip
-}
+    type     = "ssh"
+    user     = "ec2-user"
+    password = "DevOps321"
+    host     = self.public_ip
+  }
 
 provisioner "remote-exec" {
   inline = [ 
@@ -26,7 +25,6 @@ provisioner "remote-exec" {
    ]
 }
 }
-
 
 resource "aws_security_group" "allow-sshh" {
   name        = "allow-sshh"
