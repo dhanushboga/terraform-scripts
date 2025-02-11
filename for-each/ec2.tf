@@ -1,7 +1,7 @@
 resource "aws_instance" "ec2" {
+  for_each = var.instances
   ami                    = "ami-09c813fb71547fc4f"
   vpc_security_group_ids = [aws_security_group.allow-sshh.id]
-  for_each = var.instances
   instance_type          = each.value
 
   tags = {
