@@ -10,7 +10,7 @@ variable "environment" {
   
 }
 variable "aws_zone_id" {
-  default = "Z02994393VNXN8761IE9A"
+  default = "Z00348971UIDPAL0V2OR2"
 }
 
 variable "domain_name" {
